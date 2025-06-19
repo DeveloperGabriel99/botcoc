@@ -109,10 +109,6 @@ body:not(.scrolled) .hero-content .fade-in {
     transform: translateY(0);
 }
 
-.cta-button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 20px var(--primary-color);
-}
 .cta-button {
     display: inline-block;
     padding: 12px 30px;
@@ -124,7 +120,16 @@ body:not(.scrolled) .hero-content .fade-in {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.cta-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px var(--primary-color);
+}
+
 /* ---- ANIMAÇÃO GERAL DE SCROLL ---- */
+.content-section {
+    padding: 6rem 0;
+}
+
 .reveal {
     opacity: 0;
     transform: translateY(50px);
@@ -144,6 +149,18 @@ body:not(.scrolled) .hero-content .fade-in {
     margin-top: 2rem;
 }
 
+/* ---- ESTILOS PARA OS LINKS DOS PLANOS ---- */
+.price-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block; 
+    transition: transform 0.4s ease;
+}
+
+.price-card-link:hover {
+    transform: scale(1.03);
+}
+
 .price-card {
     background-color: var(--dark-card);
     border: 1px solid #333;
@@ -151,9 +168,11 @@ body:not(.scrolled) .hero-content .fade-in {
     padding: 2.5rem 2rem;
     text-align: center;
     transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
-    /* Adicionando transição para a animação de entrada */
-    transform: translateY(30px);
-    opacity: 0;
+    cursor: pointer;
+    height: 100%; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .reveal.active .price-card {
@@ -161,15 +180,13 @@ body:not(.scrolled) .hero-content .fade-in {
     opacity: 1;
 }
 
-/* Efeito de Stagger (atraso) para cada card */
 .reveal.active .price-card:nth-child(1) { transition-delay: 0.1s; }
 .reveal.active .price-card:nth-child(2) { transition-delay: 0.2s; }
 .reveal.active .price-card:nth-child(3) { transition-delay: 0.3s; }
 .reveal.active .price-card:nth-child(4) { transition-delay: 0.4s; }
 
 
-.price-card:hover {
-    transform: translateY(-10px) !important; /* !important para sobrepor a animação de entrada */
+.price-card-link:hover .price-card {
     border-color: var(--primary-color);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
@@ -186,9 +203,8 @@ body:not(.scrolled) .hero-content .fade-in {
     100% { transform: scale(1); }
 }
 
-/* ... (resto dos estilos de price-card, highlighted, etc. continuam os mesmos) ... */
 .price-card h3 { margin-bottom: 1rem; }
-.price-card p { color: var(--text-muted); min-height: 50px; margin-bottom: 1.5rem; }
+.price-card p { color: var(--text-muted); margin-bottom: 1.5rem; flex-grow: 1; }
 .price { font-size: 2.2rem; font-weight: 700; color: var(--primary-color); }
 .price-note { font-size: 1rem; font-weight: 400; color: var(--text-muted); }
 .price-card.highlighted { position: relative; border: 2px solid var(--primary-color); box-shadow: 0 0 25px rgba(0, 217, 255, 0.3); }
@@ -196,7 +212,6 @@ body:not(.scrolled) .hero-content .fade-in {
 
 /* ---- SESSÃO DE CONTATO ---- */
 #contact { text-align: center; }
-
 .contact-buttons { display: flex; justify-content: center; gap: 1.5rem; margin-top: 2rem; flex-wrap: wrap; }
 .contact-btn { display: inline-flex; align-items: center; padding: 15px 35px; font-size: 1.1rem; font-weight: 600; text-decoration: none; border-radius: 8px; transition: transform 0.3s ease, box-shadow 0.3s ease; }
 .contact-btn i { margin-right: 10px; font-size: 1.5rem; }
@@ -204,7 +219,6 @@ body:not(.scrolled) .hero-content .fade-in {
 .contact-btn.whatsapp:hover { transform: scale(1.05); box-shadow: 0 0 20px #25d366a6; }
 .contact-btn.telegram { background-color: #2AABEE; color: #fff; }
 .contact-btn.telegram:hover { transform: scale(1.05); box-shadow: 0 0 20px #2aacee9d; }
-
 
 /* ---- FOOTER ---- */
 footer { text-align: center; padding: 2rem; border-top: 1px solid #222; color: var(--text-muted); }
